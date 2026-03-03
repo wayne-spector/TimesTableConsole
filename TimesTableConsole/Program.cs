@@ -2,6 +2,8 @@
 String input = Console.ReadLine();
 int inputNumber = Int32.Parse(input);
 int columns = 3;
+int inputNumLength = inputNumber.ToString().Length;
+int ansLength = (inputNumber * inputNumber).ToString().Length;
 
 if (inputNumber % 5 == 0)
 {
@@ -20,19 +22,11 @@ for (int k = 1; k <= inputNumber; k += columns)
     {
         for (int i = k; i <= k + (columns - 1) && i <= inputNumber; i++)
         {
-            int ans = i * j;
-            
-            if (i < 10) Console.Write(" ");
-            Console.Write($"{i} x ");
-            
-            if (j < 10) Console.Write(" ");
-            Console.Write($"{j} = ");
-            
-            if (ans < 10) Console.Write("   ");
-            else if (ans < 100) Console.Write("  ");
-            else if (ans < 1000) Console.Write(" ");
-    
-            Console.Write($"{ans}\t");
+            string numI = i.ToString().PadLeft(inputNumLength);
+            string numJ = j.ToString().PadLeft(inputNumLength);
+            string numAns = (i * j).ToString().PadLeft(ansLength);
+
+            Console.Write($"{numI} x {numJ} = {numAns}\t");
         }
 
         Console.WriteLine();
