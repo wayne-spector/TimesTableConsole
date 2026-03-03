@@ -18,9 +18,21 @@ for (int k = 1; k <= inputNumber; k += columns)
 {
     for (int j = 1; j <= inputNumber; j++)
     {
-        for (int i = k; i <= k+(columns-1)&& i<=inputNumber; i++)
+        for (int i = k; i <= k + (columns - 1) && i <= inputNumber; i++)
         {
-            Console.Write($"{i} x {j} = {i * j}\t");
+            int ans = i * j;
+            
+            if (i < 10) Console.Write(" ");
+            Console.Write($"{i} x ");
+            
+            if (j < 10) Console.Write(" ");
+            Console.Write($"{j} = ");
+            
+            if (ans < 10) Console.Write("   ");
+            else if (ans < 100) Console.Write("  ");
+            else if (ans < 1000) Console.Write(" ");
+    
+            Console.Write($"{ans}\t");
         }
 
         Console.WriteLine();
